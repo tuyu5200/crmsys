@@ -45,26 +45,26 @@ public class UserController {
 
     @RequestMapping("/save.do")
     public String save(User user) {
-        userService.save(user);
+        this.userService.save(user);
         return "/index.do";
     }
 
     @RequestMapping("/delete.do")
     public String delete(Integer id) {
-        userService.delete(id);
+        this.userService.delete(id);
         return "/index.do";
     }
 
     @RequestMapping("/update.do")
     public String update(User user) {
-        userService.update(user);
+        this.userService.update(user);
         return "/index.do";
     }
 
     @RequestMapping("/queryById.do")
     public @ResponseBody
     UserVo queryByIdWithAjax(Integer id) {
-        UserVo userVo = new UserVo(userService.queryById(id));
+        UserVo userVo = new UserVo(this.userService.queryById(id));
         return userVo;
     }
 }

@@ -5,6 +5,7 @@ import com.tuyu.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -20,13 +21,13 @@ public class LoginController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/login.do")
+    @RequestMapping(value = "login.do", method = RequestMethod.POST)
     public String login(String username, String password, HttpServletRequest request, HttpSession session) {
         if (Objects.isNull(username) || Objects.isNull(password)) {
             request.setAttribute("message", "用户名或密码不能为空");
             return "forward:login.jsp";
         }
-        User user = userService.queryByUsername(username);
+        User user = this.userService.queryByUsername(username);
         if (Objects.isNull(user)) {
             request.setAttribute("message", "用户名或密码不正确");
             return "forward:login.jsp";
@@ -46,11 +47,12 @@ public class LoginController {
      *
      * @return
      */
+    @RequestMapping(value = "logout.do")
     public String logout(HttpSession session) {
         User user = (User) session.getAttribute("_SUBJECT");
         if (Objects.nonNull(user)) {
             session.invalidate();
         }
-        return "redirect:login.jsp";
+        return "redirect:/login.jsp";
     }
 }

@@ -12,8 +12,11 @@
        http://www.springframework.org/schema/aop/spring-aop.xsd
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-        <!--配置自动扫描-->
-    <context:component-scan base-package="com.tuyu"/>
+    <!--配置自动扫描-->
+    <context:component-scan base-package="com.tuyu">
+        <!--需要排除掉controller 由springMVC去扫描-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
     <!--指定配置文件-->
     <context:property-placeholder location="classpath:config.properties"/>
 
@@ -57,7 +60,7 @@
     </bean>
 
     <!--配置sessionFactory-->
-    <bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" name="sessionFactory">
+    <bean class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" id="sessionFactory">
         <!--配置数据源-->
         <property name="dataSource" ref="dataSource"/>
         <!--配置要扫描的实体类-->
@@ -81,10 +84,8 @@
     </bean>
     <!--配置hibernate事务管理器-->
     <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
-    <bean id="sessionFactory"/>
-    <bean id="sessionFactory"/>
 
     <!--开启事务的注解配置-->
     <tx:annotation-driven transaction-manager="transactionManager"/>
