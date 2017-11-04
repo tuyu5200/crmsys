@@ -18,7 +18,12 @@ import java.util.List;
 public abstract class BaseServiceImpl<T> implements BaseService<T> {
 
     private BaseDao baseDao;
-    
+
+    /**
+     * 之类实现时指定具体的注入对象
+     *
+     * @param baseDao
+     */
     public void setBaseDao(BaseDao baseDao) {
         this.baseDao = baseDao;
     }

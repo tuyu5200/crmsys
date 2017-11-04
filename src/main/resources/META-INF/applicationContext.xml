@@ -73,7 +73,7 @@
                 <!--是否显示sql语句-->
                 <prop key="show_sql">${hibernate.show_sql}</prop>
                 <prop key="format_sql">${hibernate.format_sql}</prop>
-                <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+                <!--<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>-->
             </props>
         </property>
     </bean>

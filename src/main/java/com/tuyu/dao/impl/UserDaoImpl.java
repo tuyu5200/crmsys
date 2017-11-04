@@ -15,6 +15,6 @@ import org.springframework.stereotype.Repository;
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     @Override
     public User queryByUsername(String username) {
-        return (User) getSession().createCriteria(clazz).add(Restrictions.eq("name", username)).uniqueResult();
+        return (User) getSession().createCriteria(this.clazz).add(Restrictions.eq("username", username)).uniqueResult();
     }
 }

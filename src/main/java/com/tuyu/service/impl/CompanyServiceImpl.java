@@ -14,13 +14,15 @@ import org.springframework.transaction.annotation.Transactional;
  * @description：
  */
 @Service
-@Transactional(readOnly = true,rollbackFor = Throwable.class)
-public class CompanyServiceImpl extends BaseServiceImpl<Company> implements CompanyService{
+@Transactional(readOnly = true, rollbackFor = Throwable.class)
+public class CompanyServiceImpl extends BaseServiceImpl<Company> implements CompanyService {
 
     private CompanyDao companyDao;
+
     @Autowired
     public void setCompanyDao(CompanyDao companyDao) {
         super.setBaseDao(companyDao);
         this.companyDao = companyDao;
     }
+    
 }
