@@ -1,13 +1,13 @@
 package com.tuyu.service.impl;
 
 import com.tuyu.dao.RoleDao;
+import com.tuyu.po.Role;
 import com.tuyu.service.RoleService;
 import com.tuyu.service.support.impl.BaseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.management.relation.Role;
 
 /**
  * @author walker tu
@@ -15,7 +15,7 @@ import javax.management.relation.Role;
  * @description：
  */
 @Service
-@Transactional(readOnly = true,rollbackFor = Throwable.class)
+@Transactional(readOnly = true, rollbackFor = Throwable.class)
 public class RoleServiceImpl extends BaseServiceImpl<Role> implements RoleService {
 
     private RoleDao roleDao;

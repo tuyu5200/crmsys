@@ -25,7 +25,7 @@ public class ComplaintRecord {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -35,7 +35,7 @@ public class ComplaintRecord {
     @Basic
     @Column(name = "complaint_title")
     public String getComplaintTitle() {
-        return complaintTitle;
+        return this.complaintTitle;
     }
 
     public void setComplaintTitle(String complaintTitle) {
@@ -45,7 +45,7 @@ public class ComplaintRecord {
     @Basic
     @Column(name = "content")
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     public void setContent(String content) {
@@ -55,7 +55,7 @@ public class ComplaintRecord {
     @Basic
     @Column(name = "record_date")
     public Date getRecordDate() {
-        return recordDate;
+        return this.recordDate;
     }
 
     public void setRecordDate(Date recordDate) {
@@ -73,16 +73,16 @@ public class ComplaintRecord {
 
         ComplaintRecord that = (ComplaintRecord) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) {
+        if (this.id != null ? !this.id.equals(that.id) : that.id != null) {
             return false;
         }
-        if (complaintTitle != null ? !complaintTitle.equals(that.complaintTitle) : that.complaintTitle != null) {
+        if (this.complaintTitle != null ? !this.complaintTitle.equals(that.complaintTitle) : that.complaintTitle != null) {
             return false;
         }
-        if (content != null ? !content.equals(that.content) : that.content != null) {
+        if (this.content != null ? !this.content.equals(that.content) : that.content != null) {
             return false;
         }
-        if (recordDate != null ? !recordDate.equals(that.recordDate) : that.recordDate != null) {
+        if (this.recordDate != null ? !this.recordDate.equals(that.recordDate) : that.recordDate != null) {
             return false;
         }
 
@@ -91,16 +91,16 @@ public class ComplaintRecord {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (complaintTitle != null ? complaintTitle.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
-        result = 31 * result + (recordDate != null ? recordDate.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.complaintTitle != null ? this.complaintTitle.hashCode() : 0);
+        result = 31 * result + (this.content != null ? this.content.hashCode() : 0);
+        result = 31 * result + (this.recordDate != null ? this.recordDate.hashCode() : 0);
         return result;
     }
 
     @OneToMany(mappedBy = "complaintRecord")
     public Collection<ComplaintDispose> getComplaintDisposes() {
-        return complaintDisposes;
+        return this.complaintDisposes;
     }
 
     public void setComplaintDisposes(Collection<ComplaintDispose> complaintDisposes) {
@@ -110,7 +110,7 @@ public class ComplaintRecord {
     @ManyToOne
     @JoinColumn(name = "state", referencedColumnName = "id")
     public ComplaintState getComplaintState() {
-        return complaintState;
+        return this.complaintState;
     }
 
     public void setComplaintState(ComplaintState complaintState) {
@@ -120,7 +120,7 @@ public class ComplaintRecord {
     @ManyToOne
     @JoinColumn(name = "comp_Id", referencedColumnName = "id")
     public Complaint getComplaint() {
-        return complaint;
+        return this.complaint;
     }
 
     public void setComplaint(Complaint complaint) {
@@ -130,7 +130,7 @@ public class ComplaintRecord {
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {

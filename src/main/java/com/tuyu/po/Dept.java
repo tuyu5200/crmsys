@@ -22,7 +22,7 @@ public class Dept {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -32,17 +32,17 @@ public class Dept {
     @Basic
     @Column(name = "name")
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
-        name = name;
+        this.name = name;
     }
 
     @Basic
     @Column(name = "description")
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -60,13 +60,13 @@ public class Dept {
 
         Dept dept = (Dept) o;
 
-        if (id != null ? !id.equals(dept.id) : dept.id != null) {
+        if (this.id != null ? !this.id.equals(dept.id) : dept.id != null) {
             return false;
         }
-        if (name != null ? !name.equals(dept.name) : dept.name != null) {
+        if (this.name != null ? !this.name.equals(dept.name) : dept.name != null) {
             return false;
         }
-        if (description != null ? !description.equals(dept.description) : dept.description != null) {
+        if (this.description != null ? !this.description.equals(dept.description) : dept.description != null) {
             return false;
         }
 
@@ -75,16 +75,16 @@ public class Dept {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
+        result = 31 * result + (this.description != null ? this.description.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
     @JoinColumn(name = "companyId", referencedColumnName = "id")
     public Company getCompany() {
-        return company;
+        return this.company;
     }
 
     public void setCompany(Company company) {
@@ -93,7 +93,7 @@ public class Dept {
 
     @OneToMany(mappedBy = "dept")
     public Collection<Role> getRoles() {
-        return roles;
+        return this.roles;
     }
 
     public void setRoles(Collection<Role> roles) {
@@ -102,7 +102,7 @@ public class Dept {
 
     @OneToMany(mappedBy = "dept")
     public Collection<User> getUsers() {
-        return users;
+        return this.users;
     }
 
     public void setUsers(Collection<User> users) {

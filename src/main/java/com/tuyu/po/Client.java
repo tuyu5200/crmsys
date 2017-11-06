@@ -35,7 +35,7 @@ public class Client {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -45,7 +45,7 @@ public class Client {
     @Basic
     @Column(name = "name")
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -55,7 +55,7 @@ public class Client {
     @Basic
     @Column(name = "legal")
     public String getLegal() {
-        return legal;
+        return this.legal;
     }
 
     public void setLegal(String legal) {
@@ -65,7 +65,7 @@ public class Client {
     @Basic
     @Column(name = "postcode")
     public Integer getPostcode() {
-        return postcode;
+        return this.postcode;
     }
 
     public void setPostcode(Integer postcode) {
@@ -75,7 +75,7 @@ public class Client {
     @Basic
     @Column(name = "phone")
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public void setPhone(String phone) {
@@ -85,7 +85,7 @@ public class Client {
     @Basic
     @Column(name = "fax")
     public String getFax() {
-        return fax;
+        return this.fax;
     }
 
     public void setFax(String fax) {
@@ -95,7 +95,7 @@ public class Client {
     @Basic
     @Column(name = "email")
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -105,7 +105,7 @@ public class Client {
     @Basic
     @Column(name = "url")
     public String getUrl() {
-        return url;
+        return this.url;
     }
 
     public void setUrl(String url) {
@@ -115,7 +115,7 @@ public class Client {
     @Basic
     @Column(name = "register_date")
     public Date getRegisterDate() {
-        return registerDate;
+        return this.registerDate;
     }
 
     public void setRegisterDate(Date registerDate) {
@@ -125,7 +125,7 @@ public class Client {
     @Basic
     @Column(name = "next_time")
     public Date getNextTime() {
-        return nextTime;
+        return this.nextTime;
     }
 
     public void setNextTime(Date nextTime) {
@@ -135,7 +135,7 @@ public class Client {
     @Basic
     @Column(name = "level")
     public Integer getLevel() {
-        return level;
+        return this.level;
     }
 
     public void setLevel(Integer level) {
@@ -145,7 +145,7 @@ public class Client {
     @Basic
     @Column(name = "telephone")
     public String getTelephone() {
-        return telephone;
+        return this.telephone;
     }
 
     public void setTelephone(String telephone) {
@@ -163,40 +163,40 @@ public class Client {
 
         Client client = (Client) o;
 
-        if (id != null ? !id.equals(client.id) : client.id != null) {
+        if (this.id != null ? !this.id.equals(client.id) : client.id != null) {
             return false;
         }
-        if (name != null ? !name.equals(client.name) : client.name != null) {
+        if (this.name != null ? !this.name.equals(client.name) : client.name != null) {
             return false;
         }
-        if (legal != null ? !legal.equals(client.legal) : client.legal != null) {
+        if (this.legal != null ? !this.legal.equals(client.legal) : client.legal != null) {
             return false;
         }
-        if (postcode != null ? !postcode.equals(client.postcode) : client.postcode != null) {
+        if (this.postcode != null ? !this.postcode.equals(client.postcode) : client.postcode != null) {
             return false;
         }
-        if (phone != null ? !phone.equals(client.phone) : client.phone != null) {
+        if (this.phone != null ? !this.phone.equals(client.phone) : client.phone != null) {
             return false;
         }
-        if (fax != null ? !fax.equals(client.fax) : client.fax != null) {
+        if (this.fax != null ? !this.fax.equals(client.fax) : client.fax != null) {
             return false;
         }
-        if (email != null ? !email.equals(client.email) : client.email != null) {
+        if (this.email != null ? !this.email.equals(client.email) : client.email != null) {
             return false;
         }
-        if (url != null ? !url.equals(client.url) : client.url != null) {
+        if (this.url != null ? !this.url.equals(client.url) : client.url != null) {
             return false;
         }
-        if (registerDate != null ? !registerDate.equals(client.registerDate) : client.registerDate != null) {
+        if (this.registerDate != null ? !this.registerDate.equals(client.registerDate) : client.registerDate != null) {
             return false;
         }
-        if (nextTime != null ? !nextTime.equals(client.nextTime) : client.nextTime != null) {
+        if (this.nextTime != null ? !this.nextTime.equals(client.nextTime) : client.nextTime != null) {
             return false;
         }
-        if (level != null ? !level.equals(client.level) : client.level != null) {
+        if (this.level != null ? !this.level.equals(client.level) : client.level != null) {
             return false;
         }
-        if (telephone != null ? !telephone.equals(client.telephone) : client.telephone != null) {
+        if (this.telephone != null ? !this.telephone.equals(client.telephone) : client.telephone != null) {
             return false;
         }
 
@@ -205,25 +205,25 @@ public class Client {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (legal != null ? legal.hashCode() : 0);
-        result = 31 * result + (postcode != null ? postcode.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (fax != null ? fax.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (url != null ? url.hashCode() : 0);
-        result = 31 * result + (registerDate != null ? registerDate.hashCode() : 0);
-        result = 31 * result + (nextTime != null ? nextTime.hashCode() : 0);
-        result = 31 * result + (level != null ? level.hashCode() : 0);
-        result = 31 * result + (telephone != null ? telephone.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
+        result = 31 * result + (this.legal != null ? this.legal.hashCode() : 0);
+        result = 31 * result + (this.postcode != null ? this.postcode.hashCode() : 0);
+        result = 31 * result + (this.phone != null ? this.phone.hashCode() : 0);
+        result = 31 * result + (this.fax != null ? this.fax.hashCode() : 0);
+        result = 31 * result + (this.email != null ? this.email.hashCode() : 0);
+        result = 31 * result + (this.url != null ? this.url.hashCode() : 0);
+        result = 31 * result + (this.registerDate != null ? this.registerDate.hashCode() : 0);
+        result = 31 * result + (this.nextTime != null ? this.nextTime.hashCode() : 0);
+        result = 31 * result + (this.level != null ? this.level.hashCode() : 0);
+        result = 31 * result + (this.telephone != null ? this.telephone.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {
@@ -233,7 +233,7 @@ public class Client {
     @ManyToOne
     @JoinColumn(name = "city", referencedColumnName = "id")
     public City getCity() {
-        return city;
+        return this.city;
     }
 
     public void setCity(City city) {
@@ -242,7 +242,7 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     public Collection<Complaint> getComplaints() {
-        return complaints;
+        return this.complaints;
     }
 
     public void setComplaints(Collection<Complaint> complaints) {
@@ -251,7 +251,7 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     public Collection<Document> getDocuments() {
-        return documents;
+        return this.documents;
     }
 
     public void setDocuments(Collection<Document> documents) {
@@ -260,7 +260,7 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     public Collection<Linkman> getLinkmen() {
-        return linkmen;
+        return this.linkmen;
     }
 
     public void setLinkmen(Collection<Linkman> linkmen) {
@@ -269,7 +269,7 @@ public class Client {
 
     @OneToMany(mappedBy = "client")
     public Collection<Linkrecord> getLinkrecords() {
-        return linkrecords;
+        return this.linkrecords;
     }
 
     public void setLinkrecords(Collection<Linkrecord> linkrecords) {

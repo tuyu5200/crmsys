@@ -33,7 +33,7 @@ public class User {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -43,7 +43,7 @@ public class User {
     @Basic
     @Column(name = "username")
     public String getUsername() {
-        return username;
+        return this.username;
     }
 
     public void setUsername(String username) {
@@ -53,7 +53,7 @@ public class User {
     @Basic
     @Column(name = "password")
     public String getPassword() {
-        return password;
+        return this.password;
     }
 
     public void setPassword(String password) {
@@ -63,7 +63,7 @@ public class User {
     @Basic
     @Column(name = "email")
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -73,7 +73,7 @@ public class User {
     @Basic
     @Column(name = "sex")
     public Integer getSex() {
-        return sex;
+        return this.sex;
     }
 
     public void setSex(Integer sex) {
@@ -83,7 +83,7 @@ public class User {
     @Basic
     @Column(name = "enabled")
     public Integer getEnabled() {
-        return enabled;
+        return this.enabled;
     }
 
     public void setEnabled(Integer enabled) {
@@ -93,7 +93,7 @@ public class User {
     @Basic
     @Column(name = "locked")
     public Integer getLocked() {
-        return locked;
+        return this.locked;
     }
 
     public void setLocked(Integer locked) {
@@ -103,7 +103,7 @@ public class User {
     @Basic
     @Column(name = "description")
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -113,7 +113,7 @@ public class User {
     @Basic
     @Column(name = "name")
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -131,31 +131,31 @@ public class User {
 
         User user = (User) o;
 
-        if (id != null ? !id.equals(user.id) : user.id != null) {
+        if (this.id != null ? !this.id.equals(user.id) : user.id != null) {
             return false;
         }
-        if (username != null ? !username.equals(user.username) : user.username != null) {
+        if (this.username != null ? !this.username.equals(user.username) : user.username != null) {
             return false;
         }
-        if (password != null ? !password.equals(user.password) : user.password != null) {
+        if (this.password != null ? !this.password.equals(user.password) : user.password != null) {
             return false;
         }
-        if (email != null ? !email.equals(user.email) : user.email != null) {
+        if (this.email != null ? !this.email.equals(user.email) : user.email != null) {
             return false;
         }
-        if (sex != null ? !sex.equals(user.sex) : user.sex != null) {
+        if (this.sex != null ? !this.sex.equals(user.sex) : user.sex != null) {
             return false;
         }
-        if (enabled != null ? !enabled.equals(user.enabled) : user.enabled != null) {
+        if (this.enabled != null ? !this.enabled.equals(user.enabled) : user.enabled != null) {
             return false;
         }
-        if (locked != null ? !locked.equals(user.locked) : user.locked != null) {
+        if (this.locked != null ? !this.locked.equals(user.locked) : user.locked != null) {
             return false;
         }
-        if (description != null ? !description.equals(user.description) : user.description != null) {
+        if (this.description != null ? !this.description.equals(user.description) : user.description != null) {
             return false;
         }
-        if (name != null ? !name.equals(user.name) : user.name != null) {
+        if (this.name != null ? !this.name.equals(user.name) : user.name != null) {
             return false;
         }
 
@@ -164,21 +164,21 @@ public class User {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (username != null ? username.hashCode() : 0);
-        result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (sex != null ? sex.hashCode() : 0);
-        result = 31 * result + (enabled != null ? enabled.hashCode() : 0);
-        result = 31 * result + (locked != null ? locked.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.username != null ? this.username.hashCode() : 0);
+        result = 31 * result + (this.password != null ? this.password.hashCode() : 0);
+        result = 31 * result + (this.email != null ? this.email.hashCode() : 0);
+        result = 31 * result + (this.sex != null ? this.sex.hashCode() : 0);
+        result = 31 * result + (this.enabled != null ? this.enabled.hashCode() : 0);
+        result = 31 * result + (this.locked != null ? this.locked.hashCode() : 0);
+        result = 31 * result + (this.description != null ? this.description.hashCode() : 0);
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
         return result;
     }
 
     @OneToMany(mappedBy = "user")
     public Collection<Client> getClients() {
-        return clients;
+        return this.clients;
     }
 
     public void setClients(Collection<Client> clients) {
@@ -187,7 +187,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     public Collection<Complaint> getComplaints() {
-        return complaints;
+        return this.complaints;
     }
 
     public void setComplaints(Collection<Complaint> complaints) {
@@ -196,7 +196,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     public Collection<ComplaintRecord> getComplaintRecord() {
-        return complaintRecord;
+        return this.complaintRecord;
     }
 
     public void setComplaintRecord(Collection<ComplaintRecord> complaintRecord) {
@@ -205,7 +205,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     public Collection<Document> getDocuments() {
-        return documents;
+        return this.documents;
     }
 
     public void setDocuments(Collection<Document> documents) {
@@ -214,7 +214,7 @@ public class User {
 
     @OneToMany(mappedBy = "user")
     public Collection<Linkrecord> getLinkRecords() {
-        return linkRecords;
+        return this.linkRecords;
     }
 
     public void setLinkRecords(Collection<Linkrecord> linkRecords) {
@@ -224,7 +224,7 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "company_id", referencedColumnName = "id")
     public Company getCompany() {
-        return company;
+        return this.company;
     }
 
     public void setCompany(Company company) {
@@ -234,7 +234,7 @@ public class User {
     @ManyToOne
     @JoinColumn(name = "deptno", referencedColumnName = "id")
     public Dept getDept() {
-        return dept;
+        return this.dept;
     }
 
     public void setDept(Dept dept) {
@@ -244,7 +244,7 @@ public class User {
     @ManyToMany
     @JoinTable(name = "crm_user_role", joinColumns = {@JoinColumn(name = "user_id")}, inverseJoinColumns = {@JoinColumn(name = "role_id")})
     public Collection<Role> getRoles() {
-        return roles;
+        return this.roles;
     }
 
     public void setRoles(Collection<Role> roles) {

@@ -2,30 +2,62 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context-4.1.xsd
         http://www.springframework.org/schema/mvc
         http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+        http://www.springframework.org/schema/aop
+        http://www.springframework.org/schema/aop/spring-aop-4.1.xsd
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans ">
-    <!--配置需要扫描的包,扫描controller-->
-    <context:component-scan base-package="com.tuyu.controller"/>
-    <!--启用注解配置springMVC-->
-    <mvc:annotation-driven/>
 
-    <!--配置视图解析器-->
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+    <!-- 启动注解驱动的spring MVC功能,注册请求url和注解POJO类方法的映射-->
+    <mvc:annotation-driven/>
+    <!-- 对模型视图名称的解析,在请求时模型视图名称添加前后缀 -->
+    <context:component-scan base-package="com.tuyu"/>
+
     <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--默认为jsp 解析器-->
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
-        <!--配置前后缀-->
-        <property name="prefix" value="/WEB-INF/views/"/>
-        <!--<property name="suffix" value=".jsp"/>-->
+        <property name="prefix" value="/WEB-INF/views/"/>      <!-- 前缀 -->
+        <!--<property name="suffix" value=".jsp"/>   &lt;!&ndash; 后缀 &ndash;&gt;-->
+    </bean>
+    <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"/>
+    <!--这里是对静态资源的映射-->
+    <!-- <mvc:resources mapping="/js/**" location="/assets/js/"/>
+     <mvc:resources mapping="/css/**" location="/assets/css/"/>
+     <mvc:resources mapping="/img/**" location="/assets/images/"/>
+     <mvc:resources mapping="/fonts/**" location="/assets/fonts/"/>-->
+
+    <!--配置拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/css/**"/>
+            <mvc:exclude-mapping path="/img/**"/>
+            <mvc:exclude-mapping path="/fonts/**"/>
+            <mvc:exclude-mapping path="/plugins/**"/>
+            <mvc:exclude-mapping path="/login.do"/>
+            <mvc:exclude-mapping path="/relogin.do"/>
+            <mvc:exclude-mapping path="/logout.do"/>
+            <bean class="com.tuyu.security.SecurityInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- 事务管理器配置  -->
+    <bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
     </bean>
 
-    <!--配置拦截器，做权限控制-->
-    <!--<mvc:interceptors>
-        <bean class="com.tuyu.security.SecurityInterceptor"/>
-    </mvc:interceptors>-->
+    <!--开启事务配置-->
+    <tx:annotation-driven transaction-manager="transactionManager" proxy-target-class="true"/>
+
 </beans>

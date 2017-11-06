@@ -29,7 +29,7 @@ public class Linkman {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -39,7 +39,7 @@ public class Linkman {
     @Basic
     @Column(name = "name")
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -49,7 +49,7 @@ public class Linkman {
     @Basic
     @Column(name = "gender")
     public Integer getGender() {
-        return gender;
+        return this.gender;
     }
 
     public void setGender(Integer gender) {
@@ -59,7 +59,7 @@ public class Linkman {
     @Basic
     @Column(name = "birthday")
     public Date getBirthday() {
-        return birthday;
+        return this.birthday;
     }
 
     public void setBirthday(Date birthday) {
@@ -69,7 +69,7 @@ public class Linkman {
     @Basic
     @Column(name = "job")
     public String getJob() {
-        return job;
+        return this.job;
     }
 
     public void setJob(String job) {
@@ -79,7 +79,7 @@ public class Linkman {
     @Basic
     @Column(name = "active")
     public Integer getActive() {
-        return active;
+        return this.active;
     }
 
     public void setActive(Integer active) {
@@ -89,7 +89,7 @@ public class Linkman {
     @Basic
     @Column(name = "phone")
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public void setPhone(String phone) {
@@ -99,7 +99,7 @@ public class Linkman {
     @Basic
     @Column(name = "email")
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -109,7 +109,7 @@ public class Linkman {
     @Basic
     @Column(name = "content")
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     public void setContent(String content) {
@@ -127,31 +127,31 @@ public class Linkman {
 
         Linkman linkman = (Linkman) o;
 
-        if (id != null ? !id.equals(linkman.id) : linkman.id != null) {
+        if (this.id != null ? !this.id.equals(linkman.id) : linkman.id != null) {
             return false;
         }
-        if (name != null ? !name.equals(linkman.name) : linkman.name != null) {
+        if (this.name != null ? !this.name.equals(linkman.name) : linkman.name != null) {
             return false;
         }
-        if (gender != null ? !gender.equals(linkman.gender) : linkman.gender != null) {
+        if (this.gender != null ? !this.gender.equals(linkman.gender) : linkman.gender != null) {
             return false;
         }
-        if (birthday != null ? !birthday.equals(linkman.birthday) : linkman.birthday != null) {
+        if (this.birthday != null ? !this.birthday.equals(linkman.birthday) : linkman.birthday != null) {
             return false;
         }
-        if (job != null ? !job.equals(linkman.job) : linkman.job != null) {
+        if (this.job != null ? !this.job.equals(linkman.job) : linkman.job != null) {
             return false;
         }
-        if (active != null ? !active.equals(linkman.active) : linkman.active != null) {
+        if (this.active != null ? !this.active.equals(linkman.active) : linkman.active != null) {
             return false;
         }
-        if (phone != null ? !phone.equals(linkman.phone) : linkman.phone != null) {
+        if (this.phone != null ? !this.phone.equals(linkman.phone) : linkman.phone != null) {
             return false;
         }
-        if (email != null ? !email.equals(linkman.email) : linkman.email != null) {
+        if (this.email != null ? !this.email.equals(linkman.email) : linkman.email != null) {
             return false;
         }
-        if (content != null ? !content.equals(linkman.content) : linkman.content != null) {
+        if (this.content != null ? !this.content.equals(linkman.content) : linkman.content != null) {
             return false;
         }
 
@@ -160,21 +160,21 @@ public class Linkman {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (gender != null ? gender.hashCode() : 0);
-        result = 31 * result + (birthday != null ? birthday.hashCode() : 0);
-        result = 31 * result + (job != null ? job.hashCode() : 0);
-        result = 31 * result + (active != null ? active.hashCode() : 0);
-        result = 31 * result + (phone != null ? phone.hashCode() : 0);
-        result = 31 * result + (email != null ? email.hashCode() : 0);
-        result = 31 * result + (content != null ? content.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
+        result = 31 * result + (this.gender != null ? this.gender.hashCode() : 0);
+        result = 31 * result + (this.birthday != null ? this.birthday.hashCode() : 0);
+        result = 31 * result + (this.job != null ? this.job.hashCode() : 0);
+        result = 31 * result + (this.active != null ? this.active.hashCode() : 0);
+        result = 31 * result + (this.phone != null ? this.phone.hashCode() : 0);
+        result = 31 * result + (this.email != null ? this.email.hashCode() : 0);
+        result = 31 * result + (this.content != null ? this.content.hashCode() : 0);
         return result;
     }
 
     @OneToMany(mappedBy = "linkman")
     public Collection<Complaint> getComplaints() {
-        return complaints;
+        return this.complaints;
     }
 
     public void setComplaints(Collection<Complaint> complaints) {
@@ -184,7 +184,7 @@ public class Linkman {
     @ManyToOne
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     public Client getClient() {
-        return client;
+        return this.client;
     }
 
     public void setClient(Client client) {
@@ -193,7 +193,7 @@ public class Linkman {
 
     @OneToMany(mappedBy = "linkman")
     public Collection<Linkrecord> getLinkRecords() {
-        return linkRecords;
+        return this.linkRecords;
     }
 
     public void setLinkRecords(Collection<Linkrecord> linkRecords) {

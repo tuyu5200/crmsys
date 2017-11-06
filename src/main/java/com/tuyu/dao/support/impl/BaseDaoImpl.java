@@ -33,12 +33,12 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
         if (typeArguments.length != 1) {
             throw new IllegalArgumentException("泛型参数不正确");
         }
-        clazz = (Class<?>) typeArguments[0];
+        this.clazz = (Class<?>) typeArguments[0];
     }
 
 
-    public Session getSession() {
-        return sessionFactory.getCurrentSession();
+    protected Session getSession() {
+        return this.sessionFactory.getCurrentSession();
     }
 
     @Override
@@ -48,7 +48,7 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
     @Override
     public void delete(Integer id) {
-        getSession().delete(getSession().get(clazz, id));
+        getSession().delete(getSession().get(this.clazz, id));
     }
 
     @Override
@@ -63,16 +63,16 @@ public abstract class BaseDaoImpl<T> implements BaseDao<T> {
 
     @Override
     public List<T> queryAll() {
-        return getSession().createCriteria(clazz).list();
+        return getSession().createCriteria(this.clazz).list();
     }
 
     @Override
     public T queryById(Integer id) {
-        return (T) getSession().get(clazz, id);
+        return (T) getSession().get(this.clazz, id);
     }
 
     @Override
     public List<T> queryByIds(List<Integer> ids) {
-        return getSession().createCriteria(clazz).add(Restrictions.in("id", ids)).list();
+        return getSession().createCriteria(this.clazz).add(Restrictions.in("id", ids)).list();
     }
 }

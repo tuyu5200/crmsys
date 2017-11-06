@@ -25,7 +25,7 @@ public class Role {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -35,7 +35,7 @@ public class Role {
     @Basic
     @Column(name = "name")
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -45,7 +45,7 @@ public class Role {
     @Basic
     @Column(name = "enabled")
     public Integer getEnabled() {
-        return enabled;
+        return this.enabled;
     }
 
     public void setEnabled(Integer enabled) {
@@ -55,7 +55,7 @@ public class Role {
     @Basic
     @Column(name = "description")
     public String getDescription() {
-        return description;
+        return this.description;
     }
 
     public void setDescription(String description) {
@@ -73,16 +73,16 @@ public class Role {
 
         Role role = (Role) o;
 
-        if (id != null ? !id.equals(role.id) : role.id != null) {
+        if (this.id != null ? !this.id.equals(role.id) : role.id != null) {
             return false;
         }
-        if (name != null ? !name.equals(role.name) : role.name != null) {
+        if (this.name != null ? !this.name.equals(role.name) : role.name != null) {
             return false;
         }
-        if (enabled != null ? !enabled.equals(role.enabled) : role.enabled != null) {
+        if (this.enabled != null ? !this.enabled.equals(role.enabled) : role.enabled != null) {
             return false;
         }
-        if (description != null ? !description.equals(role.description) : role.description != null) {
+        if (this.description != null ? !this.description.equals(role.description) : role.description != null) {
             return false;
         }
 
@@ -91,17 +91,17 @@ public class Role {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (enabled != null ? enabled.hashCode() : 0);
-        result = 31 * result + (description != null ? description.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
+        result = 31 * result + (this.enabled != null ? this.enabled.hashCode() : 0);
+        result = 31 * result + (this.description != null ? this.description.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
     @JoinColumn(name = "constant", referencedColumnName = "id")
     public RoleConstant getRoleConstant() {
-        return roleConstant;
+        return this.roleConstant;
     }
 
     public void setRoleConstant(RoleConstant roleConstant) {
@@ -111,7 +111,7 @@ public class Role {
     @ManyToOne
     @JoinColumn(name = "dept_id", referencedColumnName = "id")
     public Dept getDept() {
-        return dept;
+        return this.dept;
     }
 
     public void setDept(Dept dept) {
@@ -121,7 +121,7 @@ public class Role {
     @ManyToOne
     @JoinColumn(name = "company_id", referencedColumnName = "id")
     public Company getCompany() {
-        return company;
+        return this.company;
     }
 
     public void setCompany(Company company) {
@@ -130,7 +130,7 @@ public class Role {
 
     @OneToMany(mappedBy = "role")
     public Collection<RoleResource> getRoleResources() {
-        return roleResources;
+        return this.roleResources;
     }
 
     public void setRoleResources(Collection<RoleResource> roleResources) {
@@ -139,7 +139,7 @@ public class Role {
 
     @ManyToMany(mappedBy = "roles", cascade = CascadeType.MERGE)
     public Collection<User> getUsers() {
-        return users;
+        return this.users;
     }
 
     public void setUsers(Collection<User> users) {

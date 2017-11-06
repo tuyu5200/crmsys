@@ -25,7 +25,7 @@ public class City {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -35,7 +35,7 @@ public class City {
     @Basic
     @Column(name = "code")
     public String getCode() {
-        return code;
+        return this.code;
     }
 
     public void setCode(String code) {
@@ -45,7 +45,7 @@ public class City {
     @Basic
     @Column(name = "name")
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -55,7 +55,7 @@ public class City {
     @Basic
     @Column(name = "first_letter")
     public String getFirstLetter() {
-        return firstLetter;
+        return this.firstLetter;
     }
 
     public void setFirstLetter(String firstLetter) {
@@ -65,7 +65,7 @@ public class City {
     @Basic
     @Column(name = "level")
     public Integer getLevel() {
-        return level;
+        return this.level;
     }
 
     public void setLevel(Integer level) {
@@ -83,19 +83,19 @@ public class City {
 
         City city = (City) o;
 
-        if (id != null ? !id.equals(city.id) : city.id != null) {
+        if (this.id != null ? !this.id.equals(city.id) : city.id != null) {
             return false;
         }
-        if (code != null ? !code.equals(city.code) : city.code != null) {
+        if (this.code != null ? !this.code.equals(city.code) : city.code != null) {
             return false;
         }
-        if (name != null ? !name.equals(city.name) : city.name != null) {
+        if (this.name != null ? !this.name.equals(city.name) : city.name != null) {
             return false;
         }
-        if (firstLetter != null ? !firstLetter.equals(city.firstLetter) : city.firstLetter != null) {
+        if (this.firstLetter != null ? !this.firstLetter.equals(city.firstLetter) : city.firstLetter != null) {
             return false;
         }
-        if (level != null ? !level.equals(city.level) : city.level != null) {
+        if (this.level != null ? !this.level.equals(city.level) : city.level != null) {
             return false;
         }
 
@@ -104,18 +104,18 @@ public class City {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (code != null ? code.hashCode() : 0);
-        result = 31 * result + (name != null ? name.hashCode() : 0);
-        result = 31 * result + (firstLetter != null ? firstLetter.hashCode() : 0);
-        result = 31 * result + (level != null ? level.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.code != null ? this.code.hashCode() : 0);
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
+        result = 31 * result + (this.firstLetter != null ? this.firstLetter.hashCode() : 0);
+        result = 31 * result + (this.level != null ? this.level.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
     @JoinColumn(name = "parent_id", referencedColumnName = "id")
     public City getParent() {
-        return parent;
+        return this.parent;
     }
 
     public void setParent(City parent) {
@@ -124,7 +124,7 @@ public class City {
 
     @OneToMany(mappedBy = "parent")
     public Collection<City> getCitys() {
-        return citys;
+        return this.citys;
     }
 
     public void setCitys(Collection<City> citys) {
@@ -133,7 +133,7 @@ public class City {
 
     @OneToMany(mappedBy = "city")
     public Collection<Client> getClients() {
-        return clients;
+        return this.clients;
     }
 
     public void setClients(Collection<Client> clients) {

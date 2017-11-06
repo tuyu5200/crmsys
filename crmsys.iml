@@ -17,14 +17,18 @@
     </facet>
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="ApplicationContext" removed="false">
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/applicationContext.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring_mvc.xml</file>
-        </fileset>
         <fileset id="web application context" name="MVC application context" removed="true">
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/applicationContext.xml</file>
         </fileset>
         <fileset id="web springDispatcherServlet servlet context" name="MVC springDispatcherServlet servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring_mvc.xml</file>
+        </fileset>
+        <fileset id="web springmvc servlet context" name="MVC springmvc servlet context" removed="true">
+          <dependency>web application context</dependency>
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring_mvc.xml</file>
+        </fileset>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/META-INF/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/main/resources/META-INF/spring_mvc.xml</file>
         </fileset>
       </configuration>
@@ -34,7 +38,7 @@
         <datasource-map>
           <unit-entry name="a.xml" value="5b4b61f4-599c-4c40-888b-9199a536e0c7" />
           <unit-entry name="noname-applicationContext.xml@2497" value="5b4b61f4-599c-4c40-888b-9199a536e0c7" />
-          <unit-entry name="sessionFactory" value="dataSource" />
+          <unit-entry name="sessionFactory" value="5b4b61f4-599c-4c40-888b-9199a536e0c7" />
         </datasource-map>
         <naming-strategy-map />
       </configuration>
@@ -114,5 +118,7 @@
     <orderEntry type="library" name="Maven: commons-io:commons-io:2.2" level="project" />
     <orderEntry type="library" name="Maven: com.sun.mail:javax.mail:1.6.0" level="project" />
     <orderEntry type="library" name="Maven: javax.activation:activation:1.1" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: commons-collections:commons-collections:3.2.1" level="project" />
   </component>
 </module>

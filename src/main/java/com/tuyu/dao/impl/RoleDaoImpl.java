@@ -1,12 +1,10 @@
 package com.tuyu.dao.impl;
 
 import com.tuyu.dao.RoleDao;
-import com.tuyu.dao.UserDao;
 import com.tuyu.dao.support.impl.BaseDaoImpl;
-import com.tuyu.po.User;
+import com.tuyu.po.Role;
 import org.springframework.stereotype.Repository;
 
-import javax.management.relation.Role;
 
 /**
  * @author walker tu
@@ -15,4 +13,5 @@ import javax.management.relation.Role;
  */
 @Repository
 public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
+
 }

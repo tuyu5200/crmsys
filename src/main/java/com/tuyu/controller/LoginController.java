@@ -40,7 +40,7 @@ public class LoginController {
 
         //登陆成功，将用户信息放入session中
         session.setAttribute("_SUBJECT", user);
-        return "/sys/user/index.do";
+        return "redirect:/sys/index.do";
     }
 
     /**

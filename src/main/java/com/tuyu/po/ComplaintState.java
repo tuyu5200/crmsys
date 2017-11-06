@@ -20,7 +20,7 @@ public class ComplaintState {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -30,7 +30,7 @@ public class ComplaintState {
     @Basic
     @Column(name = "name")
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -48,10 +48,10 @@ public class ComplaintState {
 
         ComplaintState that = (ComplaintState) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) {
+        if (this.id != null ? !this.id.equals(that.id) : that.id != null) {
             return false;
         }
-        if (name != null ? !name.equals(that.name) : that.name != null) {
+        if (this.name != null ? !this.name.equals(that.name) : that.name != null) {
             return false;
         }
 
@@ -60,14 +60,14 @@ public class ComplaintState {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (name != null ? name.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.name != null ? this.name.hashCode() : 0);
         return result;
     }
 
     @OneToMany(mappedBy = "complaintState")
     public Collection<Complaint> getComplaints() {
-        return complaints;
+        return this.complaints;
     }
 
     public void setComplaints(Collection<Complaint> complaints) {
@@ -76,7 +76,7 @@ public class ComplaintState {
 
     @OneToMany(mappedBy = "complaintState")
     public Collection<ComplaintRecord> getComplaintRecords() {
-        return complaintRecords;
+        return this.complaintRecords;
     }
 
     public void setComplaintRecords(Collection<ComplaintRecord> complaintRecords) {

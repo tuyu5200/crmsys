@@ -29,7 +29,7 @@ public class Complaint {
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Integer getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(Integer id) {
@@ -39,7 +39,7 @@ public class Complaint {
     @Basic
     @Column(name = "title")
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -49,7 +49,7 @@ public class Complaint {
     @Basic
     @Column(name = "accept_date")
     public Date getAcceptDate() {
-        return acceptDate;
+        return this.acceptDate;
     }
 
     public void setAcceptDate(Date acceptDate) {
@@ -59,7 +59,7 @@ public class Complaint {
     @Basic
     @Column(name = "tel")
     public String getTel() {
-        return tel;
+        return this.tel;
     }
 
     public void setTel(String tel) {
@@ -69,7 +69,7 @@ public class Complaint {
     @Basic
     @Column(name = "type")
     public String getType() {
-        return type;
+        return this.type;
     }
 
     public void setType(String type) {
@@ -79,7 +79,7 @@ public class Complaint {
     @Basic
     @Column(name = "level")
     public Integer getLevel() {
-        return level;
+        return this.level;
     }
 
     public void setLevel(Integer level) {
@@ -89,7 +89,7 @@ public class Complaint {
     @Basic
     @Column(name = "attitude")
     public String getAttitude() {
-        return attitude;
+        return this.attitude;
     }
 
     public void setAttitude(String attitude) {
@@ -107,25 +107,25 @@ public class Complaint {
 
         Complaint complaint = (Complaint) o;
 
-        if (id != null ? !id.equals(complaint.id) : complaint.id != null) {
+        if (this.id != null ? !this.id.equals(complaint.id) : complaint.id != null) {
             return false;
         }
-        if (title != null ? !title.equals(complaint.title) : complaint.title != null) {
+        if (this.title != null ? !this.title.equals(complaint.title) : complaint.title != null) {
             return false;
         }
-        if (acceptDate != null ? !acceptDate.equals(complaint.acceptDate) : complaint.acceptDate != null) {
+        if (this.acceptDate != null ? !this.acceptDate.equals(complaint.acceptDate) : complaint.acceptDate != null) {
             return false;
         }
-        if (tel != null ? !tel.equals(complaint.tel) : complaint.tel != null) {
+        if (this.tel != null ? !this.tel.equals(complaint.tel) : complaint.tel != null) {
             return false;
         }
-        if (type != null ? !type.equals(complaint.type) : complaint.type != null) {
+        if (this.type != null ? !this.type.equals(complaint.type) : complaint.type != null) {
             return false;
         }
-        if (level != null ? !level.equals(complaint.level) : complaint.level != null) {
+        if (this.level != null ? !this.level.equals(complaint.level) : complaint.level != null) {
             return false;
         }
-        if (attitude != null ? !attitude.equals(complaint.attitude) : complaint.attitude != null) {
+        if (this.attitude != null ? !this.attitude.equals(complaint.attitude) : complaint.attitude != null) {
             return false;
         }
 
@@ -134,20 +134,20 @@ public class Complaint {
 
     @Override
     public int hashCode() {
-        int result = id != null ? id.hashCode() : 0;
-        result = 31 * result + (title != null ? title.hashCode() : 0);
-        result = 31 * result + (acceptDate != null ? acceptDate.hashCode() : 0);
-        result = 31 * result + (tel != null ? tel.hashCode() : 0);
-        result = 31 * result + (type != null ? type.hashCode() : 0);
-        result = 31 * result + (level != null ? level.hashCode() : 0);
-        result = 31 * result + (attitude != null ? attitude.hashCode() : 0);
+        int result = this.id != null ? this.id.hashCode() : 0;
+        result = 31 * result + (this.title != null ? this.title.hashCode() : 0);
+        result = 31 * result + (this.acceptDate != null ? this.acceptDate.hashCode() : 0);
+        result = 31 * result + (this.tel != null ? this.tel.hashCode() : 0);
+        result = 31 * result + (this.type != null ? this.type.hashCode() : 0);
+        result = 31 * result + (this.level != null ? this.level.hashCode() : 0);
+        result = 31 * result + (this.attitude != null ? this.attitude.hashCode() : 0);
         return result;
     }
 
     @ManyToOne
     @JoinColumn(name = "client_id", referencedColumnName = "id")
     public Client getClient() {
-        return client;
+        return this.client;
     }
 
     public void setClient(Client client) {
@@ -157,7 +157,7 @@ public class Complaint {
     @ManyToOne
     @JoinColumn(name = "linkman_id", referencedColumnName = "id")
     public Linkman getLinkman() {
-        return linkman;
+        return this.linkman;
     }
 
     public void setLinkman(Linkman linkman) {
@@ -167,7 +167,7 @@ public class Complaint {
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     public User getUser() {
-        return user;
+        return this.user;
     }
 
     public void setUser(User user) {
@@ -177,7 +177,7 @@ public class Complaint {
     @ManyToOne
     @JoinColumn(name = "state", referencedColumnName = "id")
     public ComplaintState getComplaintState() {
-        return complaintState;
+        return this.complaintState;
     }
 
     public void setComplaintState(ComplaintState complaintState) {
@@ -186,7 +186,7 @@ public class Complaint {
 
     @OneToMany(mappedBy = "complaint")
     public Collection<ComplaintRecord> getComplaintRecords() {
-        return complaintRecords;
+        return this.complaintRecords;
     }
 
     public void setComplaintRecords(Collection<ComplaintRecord> complaintRecords) {
